@@ -15,15 +15,5 @@ public abstract class StateManager : MonoBehaviour
     // public StateManager CurrentState {get, set;}
 
     // public void Initialize(StateManager startingState)
-    {
-        CurrentState = startingState;
-        CurrentState.EnterState();
-    }
-
-    // public void ChangeState(State newState)
-    {
-        CurrentState = startingState;
-        CurrentState.EnterState();
-        CurrentState.EnterState();
-    }
+   
 }

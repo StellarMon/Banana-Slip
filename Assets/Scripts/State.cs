@@ -23,10 +23,7 @@ public abstract class State
     // protected StateMachine stateMachine;
 
     //public State (Agent agent, StateMachine stateMachine)
-    {
-        this.agent = agent;
-        this.stateMachine = stateMachine;
-    }
+    
 
     // public virtual void EnterState() ()
     // public virtual void ExitState() ()
