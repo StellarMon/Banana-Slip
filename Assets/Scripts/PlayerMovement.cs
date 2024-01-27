@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, ground);
 
-        MyInput();
+        PlayerInput();
         SpeedControl();
 
         // handle drag
@@ -69,8 +69,12 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
     }
 
-    private void MyInput()
+    private void PlayerInput()
     {
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            audioManager.PlayAudioClip("Music", gameObject, true, false);
+        }
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -87,7 +91,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        audioManager.PlayAudioClip("Balls", gameObject);
 
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
