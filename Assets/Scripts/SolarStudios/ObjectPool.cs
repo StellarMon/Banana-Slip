@@ -19,7 +19,7 @@ namespace SolarStudios //Logans Library
         // Update is called once per frame
         void Update()
         {
-
+            
         }
 
         public void InitializePool()
@@ -31,7 +31,7 @@ namespace SolarStudios //Logans Library
                 objectPool.Add(obj);
             }
         }
-
+        
         public GameObject Spawn(Vector3 position, Quaternion rotation = default)
         {
             foreach (GameObject obj in objectPool)

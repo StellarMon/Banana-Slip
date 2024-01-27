@@ -1,3 +1,4 @@
+using SolarStudios;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    private AudioManager audioManager;
     [Header("Movement")]
     public float moveSpeed;
 
@@ -37,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        audioManager = AudioManager.instance;
+       
+
         rigi = GetComponent<Rigidbody>();
         rigi.freezeRotation = true;
 
@@ -81,6 +87,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        audioManager.PlayAudioClip("Balls", gameObject);
+
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
