@@ -11,9 +11,18 @@ public class GameManager : MonoBehaviour
     public float maxTimer;
     public bool starstop;
 
+    private bool pauseStatus = false;
+
+    public Canvas pauseCanvas;
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
         Timer();
+        Pause();
     }
     void AddScore(int _value)
     {
@@ -34,11 +43,26 @@ public class GameManager : MonoBehaviour
         else
         {
             starstop = false;
+            TimerReset();
         }
     }
 
     private void TimerReset()
     {
         timer = maxTimer; 
+    }
+
+
+    public void Pause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseCanvas.enabled = !pauseStatus;
+        }
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
