@@ -69,7 +69,7 @@ namespace SolarStudios
         }
 
 
-        public void PlayAudioClip(string soundName, GameObject callerObject, bool useObjectPool = true)
+        public void PlayAudioClip(string soundName, GameObject callerObject = , bool useObjectPool = true)
         {
             Sound sound = soundList.Find(s => s.soundName == soundName);
 
