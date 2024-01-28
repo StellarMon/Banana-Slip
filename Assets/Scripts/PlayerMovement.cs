@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
-    bool readyToJump;
+    bool readyToJump = true;
 
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
@@ -53,7 +53,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, ground);
-
+        Debug.DrawRay(transform.position, Vector3.down);
+        Debug.Log(grounded);
         PlayerInput();
         SpeedControl();
 
@@ -118,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        Debug.Log("Test");
         // reset y velocity
         rigi.velocity = new Vector3(rigi.velocity.x, 0f, rigi.velocity.z);
 

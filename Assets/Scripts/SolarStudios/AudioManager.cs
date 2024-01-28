@@ -45,6 +45,7 @@ namespace SolarStudios
 
         private void Awake()
         {
+           
             soundQueue = new Queue<Sound>();
             if (instance == null)
             {
@@ -54,6 +55,8 @@ namespace SolarStudios
             else
             {
                 Destroy(gameObject);
+
+              
             }
         }
 
