@@ -27,6 +27,7 @@ namespace SolarStudios
             rag.ToggleRagdollOn();
 
             //slip gives score
+            scoreManager = GameObject.Find("Canvas").GetComponent<ScoreManager>();
             scoreManager.scoreCount += 1;
 
         }

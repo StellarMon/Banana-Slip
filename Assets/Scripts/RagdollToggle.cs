@@ -28,6 +28,7 @@ public class RagdollToggle : MonoBehaviour
         }
         
     }
+    
 
     private void Update()
     {
