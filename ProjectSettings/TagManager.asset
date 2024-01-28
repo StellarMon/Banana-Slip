@@ -7,6 +7,8 @@ TagManager:
   - PEDS
   - PauseMenu
   - PlayerEyes
+  - Enemy
+  - Legs
   layers:
   - Default
   - TransparentFX
