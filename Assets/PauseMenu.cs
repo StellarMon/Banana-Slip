@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject optionsMenu;
    public void Pause()
    {
         pauseMenu.SetActive(true);
@@ -29,9 +32,15 @@ public class PauseMenu : MonoBehaviour
    }
    public void Options()
    {
-        //WIP
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
    }
    public void Quit ()
+   {
+        Application.Quit();
+   }
+
+   public void CloseSettings ()
    {
         Application.Quit();
    }
