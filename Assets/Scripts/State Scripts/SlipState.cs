@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+ 
 
 namespace SolarStudios
 {
@@ -9,6 +10,7 @@ namespace SolarStudios
         public float animTimer;
         private StateMachine stateMachine;
         public NavMeshAgent agent;
+        public ScoreManager scoreManager;
         public void Enter(StateMachine stateMachine) //Runs when we enter the state
         {
             this.stateMachine = stateMachine;
@@ -17,6 +19,9 @@ namespace SolarStudios
             agent.isStopped = true;
 
             //Play Slip animation
+
+            //slip gives score
+            scoreManager.scoreCount += 1;
 
         }
         public void Run() //Runs every frame
