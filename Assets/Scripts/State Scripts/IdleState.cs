@@ -6,6 +6,7 @@ public class IdleState : MonoBehaviour, IState
 {
     private StateMachine stateMachine;
     public NavMeshAgent agent;
+    private Animator anim;
 
     public float timer;
     public float maxTimer;
@@ -13,9 +14,12 @@ public class IdleState : MonoBehaviour, IState
 
     public void Enter(StateMachine stateMachine) //Runs when we enter the state
     {
+        anim = stateMachine.anim;
         Debug.Log("We just entered Idle");
         this.stateMachine = stateMachine;
         agent = GetComponent<NavMeshAgent>();
+
+        
 
     }
 

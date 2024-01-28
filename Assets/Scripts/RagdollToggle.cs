@@ -32,11 +32,11 @@ public class RagdollToggle : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(1))
+        /*if(Input.GetMouseButtonDown(1))
         {
             ToggleRagdollOn();
             
-        }
+        }*/
     }
 
     public void ToggleRagdollOn()

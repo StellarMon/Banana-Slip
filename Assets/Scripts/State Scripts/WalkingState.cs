@@ -7,6 +7,7 @@ using UnityEngine.AI; //important
 public class WalkingState : MonoBehaviour, IState
 {
     private StateMachine stateMachine;
+    private Animator anim;
     public NavMeshAgent agent;
     public float range; //radius of sphere
 
@@ -16,7 +17,7 @@ public class WalkingState : MonoBehaviour, IState
     public void Enter(StateMachine stateMachine) //Runs when we enter the state
     {
         this.stateMachine = stateMachine;
-        //
+        anim = stateMachine.anim;
         agent = GetComponent<NavMeshAgent>();
         Debug.Log("We just entered walk");
 
@@ -26,11 +27,13 @@ public class WalkingState : MonoBehaviour, IState
            // Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
             agent.SetDestination(point);
         }
+        anim.SetInteger("Walk", 1);
     }
     public void Run() //Runs every frame
     {
         if (Vector3.Distance(agent.transform.position, point) <= agent.stoppingDistance)
         {
+            Debug.Log("We made it");
             stateMachine.SetState(stateMachine.GetComponent<IdleState>());
         }
         /*if (agent.remainingDistance <= agent.stoppingDistance) //done with path
@@ -40,6 +43,7 @@ public class WalkingState : MonoBehaviour, IState
     }
     public void Exit() //Runs when we exit
     {
+        anim.SetInteger("Walk", 0);
         Debug.Log("We just exited walk");
     }
 

@@ -16,13 +16,14 @@ namespace SolarStudios
 
     public class StateMachine : MonoBehaviour //Dont touch this script.
     {
-
+        [HideInInspector]
+        public Animator anim;
         [HideInInspector]
         public IState currentState; //DONT TOUCH 
 
         private void Start()
         {
-        
+            anim = GetComponentInChildren<Animator>();
             SetState(gameObject.GetComponent<IdleState>()); //This is how you change state.
         }
 
