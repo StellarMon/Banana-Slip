@@ -11,6 +11,7 @@ namespace SolarStudios
         void Enter(StateMachine stateMachine);
         void Run();
         void Exit();
+        
     }
 
     public class StateMachine : MonoBehaviour //Dont touch this script.
@@ -21,8 +22,8 @@ namespace SolarStudios
 
         private void Start()
         {
-           
-           // SetState(gameObject.GetComponent<>()); //This is how you change state.
+        
+            SetState(gameObject.GetComponent<IdleState>()); //This is how you change state.
         }
 
         private void Update()
