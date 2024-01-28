@@ -9,4 +9,9 @@ public class TitleScript : MonoBehaviour
     {
         SceneManager.LoadScene("LogansTestScene");
     }
+
+    public void OnApplicationQuit()
+    {
+        Application.Quit();
+    }
 }

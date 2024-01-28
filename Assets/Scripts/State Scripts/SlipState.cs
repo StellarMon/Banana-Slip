@@ -18,57 +18,51 @@ namespace SolarStudios
 
         public ScoreManager scoreManager;
         private AudioManager audioManager;
+
+        private GameManager gameManager;
         public void Enter(StateMachine stateMachine) //Runs when we enter the state
         {
-
+            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            health--;
             this.stateMachine = stateMachine;
             agent = GetComponent<NavMeshAgent>();
 
             agent.isStopped = true;
             anim = stateMachine.anim;
             //Play Slip animation
-            rag = GetComponent<RagdollToggle>();
-            rag.ToggleRagdollOn();
+
 
             //slip gives score
             scoreManager = GameObject.Find("Canvas").GetComponent<ScoreManager>();
             scoreManager.scoreCount += 1;
             anim.enabled = false;
+            rag = GetComponent<RagdollToggle>();
+            rag.ToggleRagdollOn();
             audioManager = AudioManager.instance;
+
             PlayAudio();
             PlayFallAudio();
         }
         public void Run() //Runs every frame
         {
-            if (health < 1)
+            Invoke("Recover", 6f);
+
+            if (health <= 0)
             {
+                gameManager.NPCs.Remove(gameObject);
                 Destroy(gameObject, 6f);
             }
-            else
-            {
-                anim.enabled = true;
-                anim.SetInteger("Stand", 1);
-                rag.ToggleRagdollOff();
-
-                if (animTimer > 0)
-                {
-                    animTimer -= Time.deltaTime;
-                }
-                else
-                {
-                    stateMachine.SetState(stateMachine.GetComponent<WalkingState>());
-                }
-
-
-
-            }
+            
+               
+            
         }
         public void Exit() //Runs when we exit
         {
             anim.enabled = true;
             anim.SetInteger("Stand", 0);
             //Turn back on AI
-            agent.isStopped = false;
+
+            Invoke("StartAI", 8.3f);
         }
 
         void PlayAudio()
@@ -106,6 +100,27 @@ namespace SolarStudios
         void PlayFallAudio()
         {
             audioManager.PlayAudioClip("Fall", gameObject, true, false);
+        }
+
+        void Recover()
+        {
+            anim.enabled = true;
+            anim.SetInteger("Stand", 1);
+            rag.ToggleRagdollOff();
+
+            if (animTimer > 0)
+            {
+                animTimer -= Time.deltaTime;
+            }
+            else
+            {
+                stateMachine.SetState(stateMachine.GetComponent<WalkingState>());
+            }
+        }
+
+        void StartAI()
+        {
+            agent.isStopped = false;
         }
 
     }

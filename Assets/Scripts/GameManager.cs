@@ -1,63 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
 {
-    public int score;
+   public List<GameObject> NPCs;
 
-   [Header("Timer")]
- private float timer;
-    public float maxTimer;
-    public bool starstop;
-
-    private bool x = false;
-
-    public Canvas pauseCanvas;
     private void Start()
     {
-        
-    }
-
-    private void Update()
-    {
-        Timer();
-        //Pause();
-    }
-    void AddScore(int _value)
-    {
-        score += _value;
-    }
-
-    void RemoveScore(int _value)
-    {
-        score -= _value;
-    }
-
-    void Timer()
-    {
-        if (starstop && timer > 0)
+       NPCs = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+        if(NPCs.Count <= 0 )
         {
-            timer -= Time.deltaTime;
+            SceneManager.LoadScene("Title");
         }
-        else
-        {
-            starstop = false;
-            TimerReset();
-        }
-    }
-
-    private void TimerReset()
-    {
-        timer = maxTimer; 
-    }
-
-
-      
-//no idea if we can just make these induvidual scripts or not
-    public void Quit()
-    {
-        Application.Quit();
     }
 }
