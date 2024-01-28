@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public int score;
 
-    [Header("Timer")]
-    private float timer;
+   [Header("Timer")]
+ private float timer;
     public float maxTimer;
     public bool starstop;
 
-    private bool pauseStatus = false;
+    private bool x = false;
 
     public Canvas pauseCanvas;
     private void Start()
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         Timer();
-        Pause();
+        //Pause();
     }
     void AddScore(int _value)
     {
@@ -53,14 +54,8 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void Pause()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            pauseCanvas.enabled = !pauseStatus;
-        }
-    }
-
+      
+//no idea if we can just make these induvidual scripts or not
     public void Quit()
     {
         Application.Quit();
