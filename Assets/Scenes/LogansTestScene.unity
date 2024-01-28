@@ -10395,7 +10395,7 @@ MonoBehaviour:
   soundList:
   - soundName: Music
     clip: {fileID: 8300000, guid: f681e706158e43d469c38ec2fc269a0c, type: 3}
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: 3990e6c3357c7ed4280e31293e7dab40, type: 2}
     mute: 0
     playOnAwake: 0
     Loop: 0
@@ -10407,7 +10407,7 @@ MonoBehaviour:
     reverbZoneMix: 0.303
   - soundName: Fall
     clip: {fileID: 8300000, guid: 14af8fa9c9dad074b9297c2edcefe399, type: 3}
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: 3990e6c3357c7ed4280e31293e7dab40, type: 2}
     mute: 0
     playOnAwake: 0
     Loop: 0
@@ -10419,7 +10419,7 @@ MonoBehaviour:
     reverbZoneMix: 0.303
   - soundName: Bannana1Liner reaching
     clip: {fileID: 8300000, guid: 6df2be81eb47abf43905dfc915767a23, type: 3}
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: 3990e6c3357c7ed4280e31293e7dab40, type: 2}
     mute: 0
     playOnAwake: 0
     Loop: 0
@@ -10431,7 +10431,7 @@ MonoBehaviour:
     reverbZoneMix: 0.303
   - soundName: Bannana1Liner4
     clip: {fileID: 8300000, guid: d3d075aadda7f4d45a7212194a3f7cc2, type: 3}
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: 3990e6c3357c7ed4280e31293e7dab40, type: 2}
     mute: 0
     playOnAwake: 0
     Loop: 0
@@ -10443,7 +10443,7 @@ MonoBehaviour:
     reverbZoneMix: 0.303
   - soundName: Busting ass
     clip: {fileID: 8300000, guid: 0bea6993ee7f2254f8453b42e91f01c7, type: 3}
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: 3990e6c3357c7ed4280e31293e7dab40, type: 2}
     mute: 0
     playOnAwake: 0
     Loop: 0
@@ -10455,7 +10455,7 @@ MonoBehaviour:
     reverbZoneMix: 0.303
   - soundName: Fell like a fruit
     clip: {fileID: 8300000, guid: baae880a2c2aa2f46997c1f8c5c3b676, type: 3}
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: 3990e6c3357c7ed4280e31293e7dab40, type: 2}
     mute: 0
     playOnAwake: 0
     Loop: 0
@@ -10467,7 +10467,7 @@ MonoBehaviour:
     reverbZoneMix: 0.303
   - soundName: Reaching2
     clip: {fileID: 8300000, guid: bc0a4129d4a6e64408636ed0aa53931e, type: 3}
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: 3990e6c3357c7ed4280e31293e7dab40, type: 2}
     mute: 0
     playOnAwake: 0
     Loop: 0
@@ -10479,7 +10479,7 @@ MonoBehaviour:
     reverbZoneMix: 0.303
   - soundName: Slip on my peel
     clip: {fileID: 8300000, guid: 69e2fc18d2d2c5f4093d905206ead161, type: 3}
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: 3990e6c3357c7ed4280e31293e7dab40, type: 2}
     mute: 0
     playOnAwake: 0
     Loop: 0
@@ -10491,7 +10491,7 @@ MonoBehaviour:
     reverbZoneMix: 0.303
   - soundName: Yeet
     clip: {fileID: 8300000, guid: e39fca175d6448d43a981c5ecdead9d8, type: 3}
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: 3990e6c3357c7ed4280e31293e7dab40, type: 2}
     mute: 0
     playOnAwake: 0
     Loop: 0
@@ -10503,7 +10503,7 @@ MonoBehaviour:
     reverbZoneMix: 0.303
   - soundName: Slipped
     clip: {fileID: 8300000, guid: d42c74c79aab8644d86a1f223c6f3cde, type: 3}
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: 3990e6c3357c7ed4280e31293e7dab40, type: 2}
     mute: 0
     playOnAwake: 0
     Loop: 0
