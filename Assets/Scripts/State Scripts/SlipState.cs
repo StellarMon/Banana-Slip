@@ -10,6 +10,10 @@ namespace SolarStudios
         public float animTimer;
         private StateMachine stateMachine;
         public NavMeshAgent agent;
+        private int health;
+
+        private RagdollToggle rag;
+
         public ScoreManager scoreManager;
         public void Enter(StateMachine stateMachine) //Runs when we enter the state
         {
@@ -19,6 +23,8 @@ namespace SolarStudios
             agent.isStopped = true;
 
             //Play Slip animation
+            rag = GetComponent<RagdollToggle>();
+            rag.ToggleRagdollOn();
 
             //slip gives score
             scoreManager.scoreCount += 1;
@@ -26,16 +32,25 @@ namespace SolarStudios
         }
         public void Run() //Runs every frame
         {
-            //Run a timer that is the length of the animation
-            if (animTimer > 0)
+            if (health < 1)
             {
-                animTimer -= Time.deltaTime;
+                Destroy(gameObject, 4f);
             }
             else
             {
-                animTimer = animLength;
-                stateMachine.SetState(stateMachine.GetComponent<WalkingState>());
                 
+                //Run a timer that is the length of the animation
+                if (animTimer > 0)
+                {
+                    animTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    animTimer = animLength;
+                    rag.ToggleRagdollOff();
+                    stateMachine.SetState(stateMachine.GetComponent<WalkingState>());
+
+                }
             }
         }
         public void Exit() //Runs when we exit
