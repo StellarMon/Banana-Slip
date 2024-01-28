@@ -28,7 +28,14 @@ namespace SolarStudios
 
         private void Update()
         {
-            currentState.Run();
+            if (currentState != null)
+            {
+                currentState.Run();
+            }
+            else
+            {
+                SetState(gameObject.GetComponent<IdleState>());
+            }
 
         }
 
