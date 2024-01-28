@@ -1,3 +1,4 @@
+using SolarStudios;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    private AudioManager audioManager;
     [Header("Movement")]
     public float moveSpeed;
 
@@ -13,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
-    bool readyToJump;
+    bool readyToJump = true;
 
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
@@ -37,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        audioManager = AudioManager.instance;
+       
+
         rigi = GetComponent<Rigidbody>();
         rigi.freezeRotation = true;
 
@@ -47,8 +53,9 @@ public class PlayerMovement : MonoBehaviour
     {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, ground);
-
-        MyInput();
+        Debug.DrawRay(transform.position, Vector3.down);
+        Debug.Log(grounded);
+        PlayerInput();
         SpeedControl();
 
         // handle drag
@@ -63,8 +70,12 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
     }
 
-    private void MyInput()
+    private void PlayerInput()
     {
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            audioManager.PlayAudioClip("Music", gameObject, true, false);
+        }
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -81,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
@@ -107,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        Debug.Log("Test");
         // reset y velocity
         rigi.velocity = new Vector3(rigi.velocity.x, 0f, rigi.velocity.z);
 
