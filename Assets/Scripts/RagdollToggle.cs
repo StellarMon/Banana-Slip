@@ -50,27 +50,29 @@ public class RagdollToggle : MonoBehaviour
             rigidbody.isKinematic = false;
         }
 
-        ApplySlipForceToLegs();
+        Invoke(nameof(ApplySlipForceToLegs), 1f);
     }
 
 
 
     private void ApplySlipForceToLegs()
     {
-        // Find rigidbodies with the specified tag (Legs)
+        Debug.Log("LAUNCH");
         Rigidbody[] legRigbodies = GameObject.FindGameObjectsWithTag("Legs")
                                       .Select(go => go.GetComponent<Rigidbody>())
                                       .Where(rb => rb != null)
                                       .ToArray();
 
-        // Apply outward and upward force to the legs' rigidbodies (adjust force as needed)
+       
         foreach (Rigidbody legRigidbody in legRigbodies)
         {
             Vector3 outwardForce = legRigidbody.transform.forward * outForce;
             Vector3 upwardForce = Vector3.up * upForce;
 
-            legRigidbody.AddForce(outwardForce + upwardForce, ForceMode.Impulse);
+            legRigidbody.AddForce(outwardForce + upwardForce, ForceMode.Force);
         }
+
+
     }
 
     public void ToggleRagdollOff()
