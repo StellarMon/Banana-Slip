@@ -9,6 +9,8 @@ public class VideoManager : MonoBehaviour
     public static VideoManager instance;
     private bool played;
 
+    public GameObject rend;
+
     public VideoPlayer player;
     private void Awake()
     {
@@ -31,6 +33,12 @@ public class VideoManager : MonoBehaviour
             played = true;
             player.Play();
         }
-        
+
+        Invoke("Close", 10);
+    }
+
+     void Close()
+    {
+        rend.SetActive(false);
     }
 }
