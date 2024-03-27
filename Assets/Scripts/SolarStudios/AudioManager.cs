@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using System.Reflection;
 
 namespace SolarStudios
 {
@@ -62,12 +63,16 @@ namespace SolarStudios
 
         private void Start()
         {
-            Type objectPoolType = Type.GetType("ObjectPool"); //Essentially checking if this is a thing in the project.
+            Assembly assembly = Assembly.GetExecutingAssembly(); //I dont know wtf this is
+
+            Type objectPoolType = assembly.GetType("SolarStudios.ObjectPool");//Essentially checking if this is a thing in the project.
 
             if (objectPoolType != null)
             {
                 canPool = true;
-                objectPool = GetComponent<ObjectPool>();
+                objectPool = GetComponent(objectPoolType.FullName) as Component;
+                Debug.Log("Found objectpool");
+
             }
             else
             {
