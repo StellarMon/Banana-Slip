@@ -108,14 +108,7 @@ namespace SolarStudios
             anim.SetInteger("Stand", 1);
             rag.ToggleRagdollOff();
 
-            if (animTimer > 0)
-            {
-                animTimer -= Time.deltaTime;
-            }
-            else
-            {
-                stateMachine.SetState(stateMachine.GetComponent<WalkingState>());
-            }
+            stateMachine.SetState(stateMachine.GetComponent<WalkingState>());
         }
 
         void StartAI()
